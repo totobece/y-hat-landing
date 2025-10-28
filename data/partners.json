@@ -1,6 +1,14 @@
 [
     {
-        "name": "Polo Exactas",
-        "logo": "/partners/polo-exactas-logo.png"
+        "logo": "/partners/cid.png"
+    },
+    {
+        "logo": "/partners/ibm.png"
+    },
+    {
+        "logo": "/partners/microsoft.png"
+    },
+    {
+        "logo": "/partners/cid.png"
     }
 ]

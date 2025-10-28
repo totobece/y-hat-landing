@@ -117,9 +117,9 @@ export default function Home() {
                 active={event.active}
                 href={event.href}
               >
-                <h3 className="text-2xl font-bold mb-2">{event.edition}</h3>
+                <h3 className="text-2xl font-bold mb-2">{event.title}</h3>
                 <p className="text-gray-300 mb-1">{event.date}</p>
-                <p className="text-teal-400 font-semibold">{event.participants}</p>
+                <p className="text-teal-400 font-semibold">{event.subtitle}</p>
               </EventCard>
             ))}
           </div>
@@ -127,7 +127,7 @@ export default function Home() {
       </section>
 
       {/* Partners Section */}
-      <section className="py-24 px-6">
+      {/* <section className="py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -135,7 +135,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-3xl md:text-5xl font-bold text-center mb-16"
           >
-            Confían en nosotros
+            Nos acompañaron
           </motion.h2>
           <motion.div
             initial={{ opacity: 0 }}
@@ -143,14 +143,14 @@ export default function Home() {
             viewport={{ once: true }}
             className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center"
           >
-            {[...Array(12)].map((_, i) => (
+            {partners.map((partner, i) => (
               <div key={i} className="w-24 h-24 bg-white/10 rounded-lg flex items-center justify-center text-xs text-center p-2">
-                Partner {i + 1}
+                <Image src={partner.logo} alt={`Partner ${i + 1}`} width={80} height={80} className="max-w-full max-h-full object-contain" />
               </div>
             ))}
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className="py-24 px-6">
