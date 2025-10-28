@@ -4,19 +4,22 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Instagram, Linkedin } from 'lucide-react';
 import { ImageCarousel } from '@/components/image-carousel';
+import { EventCard } from '@/components/ui/event-card';
+import events from '@/data/events.json';
+import partners from '@/data/partners.json';
 
 export default function Home() {
   return (
     <main className="min-h-screen">
       {/* Header/Navbar */}
-      <header className="fixed top-0 w-full z-50 bg-transparent">
+      <header className="fixed top-0 w-full z-50 bg-linear-to-b from-black/60 to-transparent backdrop-blur-sm shadow-sm transition-colors">
         <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <Image src="/Frame 15.png" alt="Y-Hat Logo" width={60} height={60} className="rounded-lg" />
+            <Image src="/logo.svg" alt="Y-Hat Logo" width={40} height={40} className="rounded-lg" />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 20 }}
@@ -36,14 +39,14 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center px-6">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-4xl px-6 py-13  mx-auto text-center rounded-2xl shadow-3xl">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
-            className="mb-8"
+            className="mb-8" 
           >
-            <Image src="/Frame 15.png" alt="Y-Hat" width={200} height={200} className="mx-auto rounded-2xl shadow-2xl" />
+            <Image src="/logo.svg" alt="Y-Hat" width={150} height={150} className="mx-auto" />
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -104,30 +107,20 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-3xl md:text-5xl font-bold text-center mb-16"
           >
-            Sumate al evento con toda la comunidad de Y-Hat.
+            Sumate a los eventos de la comunidad Y-Hat
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { edition: 'Edición I', date: '03/10 - Ciudad Universitaria', participants: '+50 estudiantes' },
-              { edition: 'Edición II', date: 'Julio 2024', participants: '+120 estudiantes' },
-              { edition: 'Edición III', date: 'Diciembre 2024', participants: '+300 estudiantes' },
-              { edition: 'Edición IV', date: 'Junio 2025', participants: '+450 estudiantes' },
-              { edition: 'Perú', date: 'Agosto 2025', participants: '+150 estudiantes' },
-              { edition: 'México', date: 'Octubre 2025', participants: '+100 estudiantes' },
-            ].map((event, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="bg-white/5 backdrop-blur-sm border border-teal-500/30 rounded-2xl p-8 hover:bg-white/10 transition-all cursor-pointer"
+            {events.map((event, index) => (
+              <EventCard 
+                key={index} 
+                index={index} 
+                active={event.active}
+                href={event.href}
               >
                 <h3 className="text-2xl font-bold mb-2">{event.edition}</h3>
                 <p className="text-gray-300 mb-1">{event.date}</p>
                 <p className="text-teal-400 font-semibold">{event.participants}</p>
-              </motion.div>
+              </EventCard>
             ))}
           </div>
         </div>

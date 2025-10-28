@@ -1,0 +1,22 @@
+[
+    { 
+        "edition": "Investigathón",
+        "date": "29/11 - Ciudad Universitaria", 
+        "participants": "Coming soon!",
+        "active": true
+    },
+    {   
+        "edition": "Taller de vibe coding",
+        "date": "Septiembre 2025",
+        "participants": "+70 estudiantes",
+        "active": false,
+        "href": "https://luma.com/m0s4wsrg"
+    },
+    { 
+        "edition": "Génesis",
+        "date": "Julio 2025",
+        "participants": "+100 estudiantes",
+        "active": false,
+        "href": "https://luma.com/8g4i25yq"
+    }
+]
