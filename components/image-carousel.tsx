@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
+import Image from 'next/image'
 
 export function ImageCarousel() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -19,9 +20,9 @@ export function ImageCarousel() {
   const centerY = useTransform(scrollYProgress, [0, 1], [0, 400])
   
   // Dividir en 3 columnas
-  const leftColumn = [1, 2, 3, 4]
-  const centerColumn = [5, 6, 7, 8]
-  const rightColumn = [9, 10, 11, 12]
+  const leftColumn = [1, 2, 3]
+  const centerColumn = [4, 5, 6]
+  const rightColumn = [7, 8, 9]
   
   return (
     <section ref={containerRef} className="py-12 overflow-hidden">
@@ -35,9 +36,9 @@ export function ImageCarousel() {
             {leftColumn.map((num) => (
               <div
                 key={`left-${num}`}
-                className="w-full aspect-square bg-linear-to-br from-teal-500/20 to-emerald-500/20 rounded-2xl border border-teal-500/30 flex items-center justify-center backdrop-blur-sm"
+                className="w-full p-3 aspect-square bg-linear-to-br from-teal-500/20 to-emerald-500/20 rounded-2xl border border-teal-500/30 flex items-center justify-center backdrop-blur-sm"
               >
-                <span className="text-4xl font-bold text-teal-400/50">{num}</span>
+                <Image src={`/images-carrousel/image${num}.jpg`} alt={`Image ${num}`} width={200} height={200} className="w-full h-full object-cover rounded-2xl opacity-80" />
               </div>
             ))}
           </motion.div>
@@ -50,9 +51,9 @@ export function ImageCarousel() {
             {centerColumn.map((num) => (
               <div
                 key={`center-${num}`}
-                className="w-full aspect-square bg-linear-to-br from-cyan-500/20 to-teal-500/20 rounded-2xl border border-cyan-500/30 flex items-center justify-center backdrop-blur-sm"
+                className="w-full p-3 aspect-square bg-linear-to-br from-cyan-500/20 to-teal-500/20 rounded-2xl border border-cyan-500/30 flex items-center justify-center backdrop-blur-sm"
               >
-                <span className="text-4xl font-bold text-cyan-400/50">{num}</span>
+                <Image src={`/images-carrousel/image${num}.jpg`} alt={`Image ${num}`} width={200} height={200} className="w-full h-full object-cover rounded-2xl opacity-80" />
               </div>
             ))}
           </motion.div>
@@ -65,9 +66,9 @@ export function ImageCarousel() {
             {rightColumn.map((num) => (
               <div
                 key={`right-${num}`}
-                className="w-full aspect-square bg-linear-to-br from-emerald-500/20 to-green-500/20 rounded-2xl border border-emerald-500/30 flex items-center justify-center backdrop-blur-sm"
+                className="w-full p-3 aspect-square bg-linear-to-br from-emerald-500/20 to-green-500/20 rounded-2xl border border-emerald-500/30 flex items-center justify-center backdrop-blur-sm"
               >
-                <span className="text-4xl font-bold text-emerald-400/50">{num}</span>
+                <Image src={`/images-carrousel/image${num}.jpg`} alt={`Image ${num}`} width={200} height={200} className="w-full h-full object-cover rounded-2xl opacity-80" />
               </div>
             ))}
           </motion.div>
